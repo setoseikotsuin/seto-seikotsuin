@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://seto-seikotsuin.github.io/sitemap.xml
