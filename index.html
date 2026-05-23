@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="瀬戸整骨院 | 2026年7月6日グランドオープン。埼玉県草加市。医学的根拠に基づく根本改善施術。腰痛・肩こり・スポーツ障害。">
+  <title>瀬戸整骨院 | その場で変わる。未来まで変える。</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 24px 80px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(46,122,97,0.18) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(196,151,90,0.025) 40px, rgba(196,151,90,0.025) 41px);
+    }
+    .hero-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-text {}
+    .hero-grand-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(196,151,90,0.15);
+      border: 1px solid rgba(196,151,90,0.4);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      padding: 8px 18px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      font-family: var(--font-display);
+    }
+    .hero-grand-open::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.6;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 2;
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-visual {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background: rgba(28,77,62,0.3);
+      border: 1px solid rgba(196,151,90,0.2);
+    }
+    .hero-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .hero-visual-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px;
+      background: linear-gradient(transparent, rgba(13,31,24,0.9));
+    }
+    .hero-visual-overlay p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+    /* Nav quicklinks */
+    .quick-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .quick-nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+    .quick-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 20px 20px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition);
+      white-space: nowrap;
+      text-align: center;
+    }
+    .quick-nav a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--accent);
+    }
+    .quick-nav a .qn-icon { font-size: 20px; }
+    /* Features */
+    .features-bg {
+      background: var(--bg-alt);
+    }
+    /* CTA section */
+    .cta-section {
+      background: var(--primary);
+      padding: 88px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px);
+    }
+    .cta-section > * { position: relative; }
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 36px;
+      line-height: 2;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    /* Info strip */
+    .info-strip {
+      background: var(--dark);
+      padding: 64px 24px;
+    }
+    .info-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .info-block h3 {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hours-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 13px;
+    }
+    .hours-day { color: rgba(255,255,255,0.65); }
+    .hours-time { color: var(--white); font-weight: 500; }
+    .hours-time.closed { color: rgba(255,255,255,0.3); font-style: italic; }
+    .info-address {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.65);
+      line-height: 2.2;
+    }
+    .info-address strong {
+      display: block;
+      color: var(--white);
+      font-size: 15px;
+      margin-bottom: 4px;
+      font-family: var(--font-serif);
+    }
+    .info-tel {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--accent);
+      margin-top: 16px;
+      display: block;
+      letter-spacing: 0.08em;
+    }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 16px;
+    }
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .info-strip-inner { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding-top: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">
+      <span class="logo-en">Seto Seikotsuin</span>
+      <span class="logo-ja">瀬 戸 整 骨 院</span>
+    </a>
+    <nav class="site-nav">
+      <a href="first-visit.html">初めての方へ</a>
+      <a href="reasons.html">選ばれる理由</a>
+      <a href="symptoms.html">症状別のお悩み</a>
+      <a href="services.html">施術内容・料金</a>
+      <a href="flow.html">施術の流れ</a>
+      <a href="voices.html">患者様の声</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="access.html">アクセス</a>
+      <a href="https://lin.ee/P2WcvrX" target="_blank" class="nav-cta">ご予約はこちら</a>
+    </nav>
+    <button class="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav">
+  <a href="index.html">ホーム</a>
+  <a href="first-visit.html">初めての方へ</a>
+  <a href="reasons.html">選ばれる理由</a>
+  <a href="symptoms.html">症状別のお悩み</a>
+  <a href="services.html">施術内容・料金</a>
+  <a href="flow.html">施術の流れ</a>
+  <a href="voices.html">患者様の声</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="access.html">アクセス</a>
+  <a href="https://lin.ee/P2WcvrX" target="_blank" class="mobile-cta">📲 LINEでご予約</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-grand-open">2026.7.6 GRAND OPEN</div>
+      <h1>その場で変わる。<br>未来まで<em>変える。</em></h1>
+      <p class="hero-sub">痛みの改善から再発予防まで。<br>医学的根拠に基づく施術で地域を支える整骨院。</p>
+      <div class="hero-actions">
+        <a href="https://lin.ee/P2WcvrX" target="_blank" class="btn btn-line">📲 LINEで予約する</a>
+        <a href="first-visit.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">初めての方へ</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAdjL2ixpjinRlznuBOirJy9lzXWMtM12BY8cZnQjcPrQw4Zd0ylwrtTAkPplEh_sk8sc5XekR5xtxteFJbB6PmuyaOGS8Be8su1AeTC2vA7d4I_RR7EBWknZKllxVn_EcVXveHmyfmybfDL7nODqo1mDEgRxFV25ulM0GJklDXP8RB7uw_g3YT8kU=w1280" alt="瀬戸整骨院">
+      <div class="hero-visual-overlay">
+        <p>※開業準備中のため、掲載写真は完成イメージです</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK NAV -->
+<nav class="quick-nav">
+  <div class="quick-nav-inner">
+    <a href="first-visit.html"><span class="qn-icon">🌿</span>初めての方へ</a>
+    <a href="reasons.html"><span class="qn-icon">⭐</span>選ばれる理由</a>
+    <a href="symptoms.html"><span class="qn-icon">🩺</span>症状別のお悩み</a>
+    <a href="services.html"><span class="qn-icon">💴</span>施術内容・料金</a>
+    <a href="flow.html"><span class="qn-icon">📋</span>施術の流れ</a>
+    <a href="voices.html"><span class="qn-icon">💬</span>患者様の声</a>
+    <a href="faq.html"><span class="qn-icon">❓</span>よくある質問</a>
+    <a href="access.html"><span class="qn-icon">📍</span>アクセス</a>
+  </div>
+</nav>
+
+<!-- SPECIAL INVITE -->
+<section class="section">
+  <div class="container">
+    <div class="invite-banner fade-up">
+      <span class="banner-en">Special Invitation</span>
+      <h2>プレオープン特別体験会 開催決定</h2>
+      <p class="sub">身体が変わる、その第一歩を体験する3日間</p>
+      <div class="invite-details">
+        <div class="invite-detail-item">
+          <span class="label">Date</span>
+          <span class="value">7/3 Fri · 7/4 Sat · 7/5 Sun</span>
+        </div>
+        <div class="invite-detail-item">
+          <span class="label">Hours</span>
+          <span class="value">10:00 – 18:00<br><small style="font-size:14px;opacity:.7">Last Entry 17:00</small></span>
+        </div>
+        <div class="invite-detail-item">
+          <span class="label">Price</span>
+          <span class="value">500円（税込）</span>
+        </div>
+        <div class="invite-detail-item">
+          <span class="label">Capacity</span>
+          <span class="value">各日 8名様限定<br><small style="font-size:14px;opacity:.7">完全予約制</small></span>
+        </div>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:28px;">※枠に限りがございます。お早めにご予約ください。</p>
+      <a href="https://carecle.com/booking/seto-seikotsuin?timeprice_id=25949&promo_code=preopen" target="_blank" class="btn btn-accent">特別体験会に申し込む</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR FEATURES -->
+<section class="section section-alt features-bg">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <span class="section-label">OUR FEATURES</span>
+      <h2 class="section-title">当院が選ばれる3つの理由</h2>
+      <div class="divider-gold"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card fade-up">
+        <span class="card-number">01</span>
+        <p class="card-subtitle">ANALYZE</p>
+        <h3 class="card-title">徹底した原因評価</h3>
+        <p class="card-body">「なぜ痛むのか」の答えを独自の全身評価で見つけ出す。歩き方・姿勢・筋力バランスを徹底分析し、不調の根本原因を特定します。</p>
+        <a href="reasons.html" style="display:inline-block;margin-top:20px;font-size:12px;letter-spacing:.1em;color:var(--primary);border-bottom:1px solid var(--accent);padding-bottom:2px;">詳しく見る →</a>
+      </div>
+      <div class="card fade-up" style="transition-delay:.1s">
+        <span class="card-number">02</span>
+        <p class="card-subtitle">LOGICAL APPROACH</p>
+        <h3 class="card-title">医学知見に基づく改善</h3>
+        <p class="card-body">一人ひとり異なる「生活様式」に最適化されたアプローチを実施。今のライフスタイルを維持しながら、最大限の効果を引き出す根拠ある施術。</p>
+        <a href="reasons.html" style="display:inline-block;margin-top:20px;font-size:12px;letter-spacing:.1em;color:var(--primary);border-bottom:1px solid var(--accent);padding-bottom:2px;">詳しく見る →</a>
+      </div>
+      <div class="card fade-up" style="transition-delay:.2s">
+        <span class="card-number">03</span>
+        <p class="card-subtitle">SUSTAIN & HABIT</p>
+        <h3 class="card-title">再発を防ぐ一貫サポート</h3>
+        <p class="card-body">目標達成までの期間を逆算し、施術・トレーニング・生活習慣をトータルでプロデュース。再発しにくい「理想の身体」へ導きます。</p>
+        <a href="reasons.html" style="display:inline-block;margin-top:20px;font-size:12px;letter-spacing:.1em;color:var(--primary);border-bottom:1px solid var(--accent);padding-bottom:2px;">詳しく見る →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOMS PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">SYMPTOMS</span>
+      <h2 class="section-title">こんなお悩みに対応しています</h2>
+      <div class="divider-gold"></div>
+    </div>
+    <div class="grid-2 fade-up">
+      <a href="symptoms.html" style="display:block;" class="card">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+          <span style="font-size:32px;">🪬</span>
+          <div>
+            <p style="font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;">Neck & Shoulder</p>
+            <h3 style="font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--primary-dark);">首・肩の痛み</h3>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-muted);line-height:2;">肩こり・四十肩・寝違え。ストレートネックや肩甲骨の動きの悪化が主な原因です。</p>
+      </a>
+      <a href="symptoms.html" style="display:block;" class="card">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+          <span style="font-size:32px;">🦴</span>
+          <div>
+            <p style="font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;">Lower Back Pain</p>
+            <h3 style="font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--primary-dark);">腰の痛み・しびれ</h3>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-muted);line-height:2;">慢性腰痛・ぎっくり腰・坐骨神経痛。腰痛の8割は腰以外に原因があります。</p>
+      </a>
+      <a href="symptoms.html" style="display:block;" class="card">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+          <span style="font-size:32px;">🦵</span>
+          <div>
+            <p style="font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;">Joint Discomfort</p>
+            <h3 style="font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--primary-dark);">股関節・膝の痛み</h3>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-muted);line-height:2;">変形性関節症・歩行時の痛み。解剖学に基づいた機能改善トレーニングで対応。</p>
+      </a>
+      <a href="symptoms.html" style="display:block;" class="card">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+          <span style="font-size:32px;">⚡</span>
+          <div>
+            <p style="font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;">Sports & Activity</p>
+            <h3 style="font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--primary-dark);">スポーツ障害・外傷</h3>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-muted);line-height:2;">捻挫・肉離れ・パフォーマンス向上。JSPO-ATの知見で復帰プログラムを提供。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>あなたの"なりたい姿"に向けて、<br>今から一緒に準備を始めませんか？</h2>
+  <p>仕事や趣味を全力で楽しみ、10年後も、その先も、<br>自分の身体を自由に動かせる喜びを。<br>どんな些細なことでも、まずは一度ご相談ください。</p>
+  <div class="cta-buttons">
+    <a href="https://lin.ee/P2WcvrX" target="_blank" class="btn btn-line">📲 LINEでお問い合わせ</a>
+    <a href="first-visit.html" class="btn btn-accent">初めての方へ</a>
+  </div>
+</section>
+
+<!-- INFO / HOURS -->
+<section class="info-strip">
+  <div class="info-strip-inner">
+    <div class="info-block">
+      <h3>Hours</h3>
+      <div class="hours-grid">
+        <div class="hours-row"><span class="hours-day">月・火・水・金</span><span class="hours-time">9:00 – 11:00</span></div>
+        <div class="hours-row"><span class="hours-day">土曜日</span><span class="hours-time">9:00–12:00 / 13:00–18:00</span></div>
+        <div class="hours-row"><span class="hours-day">日曜日</span><span class="hours-time">9:00 – 13:00</span></div>
+        <div class="hours-row"><span class="hours-day">木曜・祝日</span><span class="hours-time closed">定休日</span></div>
+      </div>
+      <a href="access.html" style="display:inline-block;margin-top:20px;font-size:12px;letter-spacing:.1em;color:var(--accent);">詳細・地図を見る →</a>
+    </div>
+    <div class="info-block">
+      <h3>Location & Contact</h3>
+      <div class="info-address">
+        <strong>瀬 戸 整 骨 院</strong>
+        〒340-0034<br>
+        埼玉県草加市氷川町1618-3<br>
+        東武スカイツリーライン「草加駅」徒歩10分<br>
+        駐車場 3台完備
+      </div>
+      <a href="tel:08041340227" class="info-tel">080-4134-0227</a>
+      <div class="map-wrap" style="margin-top:20px;">
+        <iframe class="map-embed" src="https://maps-api-ssl.google.com/maps?hl=ja&ll=35.832159,139.797389&output=embed&q=35.832162,139.797343&z=17" loading="lazy" allowfullscreen title="瀬戸整骨院 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="logo-en">Seto Seikotsuin</p>
+        <p class="logo-ja">瀬 戸 整 骨 院</p>
+        <p>〒340-0034 埼玉県草加市氷川町1618-3<br>TEL: 080-4134-0227<br>草加駅 徒歩10分 ｜ 駐車場3台完備</p>
+      </div>
+      <div>
+        <span class="footer-nav-title">Navigation</span>
+        <ul class="footer-nav-list">
+          <li><a href="first-visit.html">初めての方へ</a></li>
+          <li><a href="reasons.html">選ばれる理由</a></li>
+          <li><a href="symptoms.html">症状別のお悩み</a></li>
+          <li><a href="services.html">施術内容・料金</a></li>
+          <li><a href="flow.html">施術の流れ</a></li>
+          <li><a href="voices.html">患者様の声</a></li>
+          <li><a href="faq.html">よくある質問</a></li>
+          <li><a href="access.html">アクセス</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-nav-title">Contact</span>
+        <div class="footer-social">
+          <a href="https://lin.ee/P2WcvrX" target="_blank">
+            <span class="social-icon line">L</span>LINE でご予約・お問い合わせ
+          </a>
+          <a href="https://www.instagram.com/seto_seikotsuin" target="_blank">
+            <span class="social-icon instagram">📷</span>Instagram @seto_seikotsuin
+          </a>
+          <a href="tel:08041340227">
+            <span class="social-icon" style="background:var(--primary);">📞</span>080-4134-0227
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 瀬戸整骨院 Seto Seikotsuin. All rights reserved.</p>
+      <a href="https://lin.ee/P2WcvrX" target="_blank">LINE予約はこちら →</a>
+    </div>
+  </div>
+</footer>
+
+<div class="float-cta">
+  <a href="https://lin.ee/P2WcvrX" target="_blank" class="btn btn-line" style="color:#fff;">📲 LINE予約</a>
+  <a href="tel:08041340227" class="btn btn-accent">📞 電話</a>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>

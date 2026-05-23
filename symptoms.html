@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="瀬戸整骨院の症状別お悩み。首・肩の痛み、腰痛、膝の痛み、スポーツ障害など幅広く対応。">
+  <title>症状別のお悩み | 瀬戸整骨院</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .symptom-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .symptom-card-header {
+      background: var(--primary);
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .symptom-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .symptom-title-wrap {}
+    .symptom-en { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 4px; display: block; }
+    .symptom-ja { font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--white); letter-spacing: .08em; }
+    .symptom-body { display: grid; grid-template-columns: 1fr 1fr; }
+    .symptom-text { padding: 36px; }
+    .symptom-text p { font-size: 14px; color: var(--text-muted); line-height: 2.1; }
+    .symptom-image { aspect-ratio: 4/3; overflow: hidden; }
+    .symptom-image img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 700px) {
+      .symptom-body { grid-template-columns: 1fr; }
+      .symptom-image { display: none; }
+      .symptom-card-header { padding: 20px 24px; }
+      .symptom-text { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo"><span class="logo-en">Seto Seikotsuin</span><span class="logo-ja">瀬 戸 整 骨 院</span></a>
+    <nav class="site-nav">
+      <a href="first-visit.html">初めての方へ</a><a href="reasons.html">選ばれる理由</a><a href="symptoms.html" class="active">症状別のお悩み</a><a href="services.html">施術内容・料金</a><a href="flow.html">施術の流れ</a><a href="voices.html">患者様の声</a><a href="faq.html">よくある質問</a><a href="access.html">アクセス</a>
+      <a href="https://lin.ee/P2WcvrX" target="_blank" class="nav-cta">ご予約はこちら</a>
+    </nav>
+    <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-nav">
+  <a href="index.html">ホーム</a><a href="first-visit.html">初めての方へ</a><a href="reasons.html">選ばれる理由</a><a href="symptoms.html">症状別のお悩み</a><a href="services.html">施術内容・料金</a><a href="flow.html">施術の流れ</a><a href="voices.html">患者様の声</a><a href="faq.html">よくある質問</a><a href="access.html">アクセス</a>
+  <a href="https://lin.ee/P2WcvrX" target="_blank" class="mobile-cta">📲 LINEでご予約</a>
+</nav>
+<div class="page-hero">
+  <p class="page-hero-label">SYMPTOMS</p>
+  <h1>症状別のお悩み</h1>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="section-header centered fade-up" style="margin-bottom:48px;">
+      <p class="section-lead">「どこへ行っても変わらない」そのお悩み、まずは一度ご相談ください。<br>医学的根拠に基づいた評価で、痛みの本当の原因を突き止めます。</p>
+    </div>
+    <div class="symptom-card fade-up">
+      <div class="symptom-card-header">
+        <span class="symptom-num">01</span>
+        <div class="symptom-title-wrap">
+          <span class="symptom-en">Neck &amp; Shoulder</span>
+          <span class="symptom-ja">首・肩の痛み（肩こり・四十肩・寝違え）</span>
+        </div>
+      </div>
+      <div class="symptom-body">
+        <div class="symptom-text">
+          <p>デスクワークやスマホによる「ストレートネック」や、肩甲骨の動きの悪化が原因かもしれません。当院では単に揉むのではなく、姿勢分析から根本的な原因を特定し、スムーズな動きを取り戻します。</p>
+          <ul style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>慢性的な肩こり・頸部痛</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>四十肩・五十肩（肩関節周囲炎）</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>寝違え・首の可動域制限</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>ストレートネック・頭痛</li>
+          </ul>
+        </div>
+        <div class="symptom-image"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUC_ZGGQsXklnLtO6tKMsgJaHsYxEdHN3oWjiY1NxM6XuZGrOV9y4y27kfBL3dEtWni28YEu-rvo4Hwo3cbcKIDLR1VorRomoszrKo8XdsCCpqxg3qStGrFu6zoXilONeTiPFz9E5Zi8PMEsS76qRzI0Q6PTYv4AtEkZQJejLVl9vJO4GdcYeaGUb6M4SoTIzOGn6Mg0SYpoNantPsbKY55ylDzhskjDzvXJDEg=w1280" alt="首・肩の痛み"></div>
+      </div>
+    </div>
+    <div class="symptom-card fade-up">
+      <div class="symptom-card-header">
+        <span class="symptom-num">02</span>
+        <div class="symptom-title-wrap">
+          <span class="symptom-en">Lower Back Pain</span>
+          <span class="symptom-ja">腰の痛み・しびれ（慢性腰痛・ぎっくり腰・坐骨神経痛）</span>
+        </div>
+      </div>
+      <div class="symptom-body">
+        <div class="symptom-text">
+          <p>腰痛の8割は、腰以外に原因があると言われています。股関節の硬さや腹圧の低下など、整形外科クリニックと整骨院での臨床経験に基づき、神経や骨の評価も含めた多角的なアプローチを行います。一人ひとりの「生活様式」に最適化されたアプローチで、身体を土台からつくり替えます。</p>
+          <ul style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>慢性腰痛・反り腰</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>ぎっくり腰（急性腰痛）</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>坐骨神経痛・足のしびれ</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>椎間板ヘルニア関連症状</li>
+          </ul>
+        </div>
+        <div class="symptom-image"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAZczhuiEzTZ0mJ1OGQHuFYkKbfAXhUUUtjsTWd_X9tB-Bx_RKBgIAItm8W0ByYo74gFJrB6JMPo7KBP-nZwn4qZys7bgLK1UJFDjqeokW1DtySaWZ2ab23Z9xAMb5fRu-1Q1BVzAcqFcDAlnEMKJOEARI3vTDr8bQ-VLDlwE-paJrTPD9KFRKlYzyP9vYgIMopDMlBb8WyajPQ9ZNhzfesvlRg8o31VOAgm64=w1280" alt="腰の痛み"></div>
+      </div>
+    </div>
+    <div class="symptom-card fade-up">
+      <div class="symptom-card-header">
+        <span class="symptom-num">03</span>
+        <div class="symptom-title-wrap">
+          <span class="symptom-en">Joint Discomfort</span>
+          <span class="symptom-ja">股関節・膝の痛み（変形性関節症・歩行時の痛み）</span>
+        </div>
+      </div>
+      <div class="symptom-body">
+        <div class="symptom-text">
+          <p>「階段がつらい」「長く歩くと痛む」といったお悩みは、筋力バランスと歩行パターンの崩れが主因です。10年後も自分の足で歩き続けるために、解剖学に基づいた機能改善トレーニングを実施します。</p>
+          <ul style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>変形性膝関節症</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>股関節痛・O脚・X脚</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>歩行時の痛み・違和感</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>産後の骨盤まわりの痛み</li>
+          </ul>
+        </div>
+        <div class="symptom-image"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAY6XH4Ij3obMyASRC0LHwyOA6NeRNzL3KnFKS1d1lLIcgXQVYY4_25BQj6kuL7xAIcVmdXLWttaF0-P0sHwvHxUi6VEXIlXVQXEzT7L60bz298Jykt_HbCBZBrkNKnY_0fejAPwb7QVnzxp9A3wZyacLoYTR5Qv33gWBWy9rzKJDfBxO99v0uubu7cn97JiKca0BKNzZWye0hx0O8D5F3fV3h2-qaP0D27-iE=w1280" alt="膝の痛み"></div>
+      </div>
+    </div>
+    <div class="symptom-card fade-up">
+      <div class="symptom-card-header">
+        <span class="symptom-num">04</span>
+        <div class="symptom-title-wrap">
+          <span class="symptom-en">Sports &amp; Activity</span>
+          <span class="symptom-ja">スポーツ障害・外傷（捻挫・肉離れ・パフォーマンス向上）</span>
+        </div>
+      </div>
+      <div class="symptom-body">
+        <div class="symptom-text">
+          <p>JSPO-AT（アスレティックトレーナー）としての知見を活かし、怪我の早期回復から再発させない身体の使い方まで指導します。学生から市民ランナーまで、科学的根拠に基づいた復帰プログラムを提供します。</p>
+          <ul style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>捻挫・肉離れ・打撲</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>繰り返すスポーツ障害</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>競技復帰・パフォーマンス改善</li>
+            <li style="font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">✓</span>フォーム改善・再発予防指導</li>
+          </ul>
+        </div>
+        <div class="symptom-image"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUB0iO7B0ppbXngGzmHptfhFwAJw-2TnMjaRytfHhAGVqw754qeKkOpv5PbhbcxLx7pKMdzvCNjuwJDuPUhNEBWMel_bmeh-e_efPPsN7I1MW0Si0jhN6OFnUyb9Ot0WDYDezFMbTCsAKPE1U77lTfT2HasWX2qnS-EVp4zTMJLBM1dBPIQXEiEcfL-sfswhOAINFVNLFdwJL16JuIC2oNe3m3eL7hU11HUMk8I=w1280" alt="スポーツ障害"></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px;" class="fade-up">
+      <a href="https://lin.ee/P2WcvrX" target="_blank" class="btn btn-primary">📲 LINEでご予約・お問い合わせ</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><p class="logo-en">Seto Seikotsuin</p><p class="logo-ja">瀬 戸 整 骨 院</p><p>〒340-0034 埼玉県草加市氷川町1618-3<br>TEL: 080-4134-0227</p></div>
+      <div><span class="footer-nav-title">Navigation</span><ul class="footer-nav-list"><li><a href="index.html">ホーム</a></li><li><a href="first-visit.html">初めての方へ</a></li><li><a href="reasons.html">選ばれる理由</a></li><li><a href="services.html">施術内容・料金</a></li><li><a href="flow.html">施術の流れ</a></li><li><a href="voices.html">患者様の声</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="access.html">アクセス</a></li></ul></div>
+      <div><span class="footer-nav-title">Contact</span><div class="footer-social"><a href="https://lin.ee/P2WcvrX" target="_blank"><span class="social-icon line">L</span>LINE予約</a><a href="https://www.instagram.com/seto_seikotsuin" target="_blank"><span class="social-icon instagram">📷</span>Instagram</a><a href="tel:08041340227"><span class="social-icon" style="background:var(--primary);">📞</span>080-4134-0227</a></div></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 瀬戸整骨院. All rights reserved.</p><a href="https://lin.ee/P2WcvrX" target="_blank">LINE予約はこちら →</a></div>
+  </div>
+</footer>
+<div class="float-cta"><a href="https://lin.ee/P2WcvrX" target="_blank" class="btn btn-line" style="color:#fff;">📲 LINE予約</a><a href="tel:08041340227" class="btn btn-accent">📞 電話</a></div>
+<script src="nav.js"></script>
+</body>
+</html>
