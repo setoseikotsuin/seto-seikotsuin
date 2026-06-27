@@ -77,26 +77,15 @@ input, select, textarea { font: inherit; }
 }
 .site-logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+  align-items: center;
   flex-shrink: 0; /* ナビが詰まってもロゴは縮めない */
 }
-.logo-en {
-  font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--accent);
-  text-transform: uppercase;
-  white-space: nowrap; /* 折り返し禁止 */
-}
-.logo-ja {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--white);
-  letter-spacing: 0.15em;
-  margin-top: 3px;
-  white-space: nowrap; /* 折り返し禁止 */
+.logo-img {
+  height: 36px;
+  width: auto;
+  max-width: none;
+  display: block;
+  flex-shrink: 0;
 }
 .site-nav { display: none; }
 .nav-cta {
@@ -1489,6 +1478,7 @@ input, select, textarea { font: inherit; }
 
 @media (min-width: 1024px) {
   .header-inner { padding: 18px 24px; }
+  .logo-img { height: 44px; }
 }
 
 /* PCナビは1200px以上で表示。1024-1199pxはハンバーガー継続 */
@@ -1516,15 +1506,13 @@ input, select, textarea { font: inherit; }
   }
   .hamburger { display: none; }
   .mobile-nav { display: none; }
-  .logo-en { font-size: 13px; letter-spacing: 0.4em; }
-  .logo-ja { font-size: 22px; letter-spacing: 0.22em; margin-top: 5px; }
+  .logo-img { height: 50px; }
 }
 
 @media (min-width: 1600px) {
   .site-nav { gap: 26px; }
   .site-nav a { font-size: 13px; letter-spacing: 0.08em; }
-  .logo-en { font-size: 15px; letter-spacing: 0.42em; }
-  .logo-ja { font-size: 26px; letter-spacing: 0.24em; margin-top: 6px; }
+  .logo-img { height: 58px; }
 }
 
 /* ============================================================
