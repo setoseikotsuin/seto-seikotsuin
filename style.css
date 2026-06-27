@@ -461,18 +461,41 @@ input, select, textarea { font: inherit; }
 }
 .quick-nav a:hover { color: var(--primary); border-bottom-color: var(--accent); }
 .qn-icon {
-  width: 32px;
-  height: 32px;
-  display: block;
-  object-fit: contain;
+  width: 40px !important;
+  height: 40px !important;
+  max-width: none !important;
+  display: block !important;
+  object-fit: contain !important;
   /* 全アイコンをサイトのプライマリ濃緑色に統一 */
   filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
   transition: filter 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+.quick-nav a {
+  min-width: 96px; /* 全項目の幅を統一して整列 */
 }
 .quick-nav a:hover .qn-icon {
   /* ホバー時はアクセントゴールド色に変化 */
   filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(597%) hue-rotate(354deg) brightness(89%) contrast(90%);
   transform: translateY(-2px);
+}
+
+/* 症状プレビューカードのアイコン */
+.symptom-icon {
+  width: 48px !important;
+  height: 48px !important;
+  max-width: none !important;
+  display: block !important;
+  object-fit: contain !important;
+  flex-shrink: 0;
+  /* サイトのプライマリ濃緑色に統一 */
+  filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.card:hover .symptom-icon {
+  /* ホバー時はアクセントゴールド色 */
+  filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(597%) hue-rotate(354deg) brightness(89%) contrast(90%);
+  transform: scale(1.05);
 }
 
 /* ============================================================
