@@ -79,6 +79,7 @@ input, select, textarea { font: inherit; }
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  flex-shrink: 0; /* ナビが詰まってもロゴは縮めない */
 }
 .logo-en {
   font-family: var(--font-display);
@@ -86,6 +87,7 @@ input, select, textarea { font: inherit; }
   letter-spacing: 0.3em;
   color: var(--accent);
   text-transform: uppercase;
+  white-space: nowrap; /* 折り返し禁止 */
 }
 .logo-ja {
   font-family: var(--font-serif);
@@ -94,6 +96,7 @@ input, select, textarea { font: inherit; }
   color: var(--white);
   letter-spacing: 0.15em;
   margin-top: 3px;
+  white-space: nowrap; /* 折り返し禁止 */
 }
 .site-nav { display: none; }
 .nav-cta {
@@ -1432,12 +1435,12 @@ input, select, textarea { font: inherit; }
   .site-nav {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 16px;
   }
   .site-nav a {
-    font-size: 12.5px;
+    font-size: 12px;
     color: rgba(255,255,255,0.85);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     position: relative;
     white-space: nowrap;
   }
@@ -1473,9 +1476,29 @@ input, select, textarea { font: inherit; }
   .footer-top { grid-template-columns: 1.5fr 1fr 1fr; }
 }
 
+@media (min-width: 1024px) {
+  .logo-en {
+    font-size: 13px;
+    letter-spacing: 0.4em;
+  }
+  .logo-ja {
+    font-size: 22px;
+    letter-spacing: 0.22em;
+    margin-top: 5px;
+  }
+  .header-inner { padding: 18px 24px; }
+}
+
 @media (min-width: 1200px) {
+  .site-nav { gap: 24px; }
+  .site-nav a { font-size: 12.5px; letter-spacing: 0.06em; }
+}
+
+@media (min-width: 1400px) {
   .site-nav { gap: 28px; }
   .site-nav a { font-size: 13px; letter-spacing: 0.08em; }
+  .logo-en { font-size: 15px; letter-spacing: 0.42em; }
+  .logo-ja { font-size: 26px; letter-spacing: 0.24em; margin-top: 6px; }
 }
 
 /* ============================================================
