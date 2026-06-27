@@ -57,6 +57,22 @@
   }
 
   // ───────────────────────────────────────────────
+  // モバイルナビ サブメニュー展開（症例一覧など）
+  // ───────────────────────────────────────────────
+  document.querySelectorAll('.mobile-nav-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      var sub = this.nextElementSibling;
+      if (sub && sub.classList.contains('mobile-nav-sub')) {
+        sub.classList.toggle('open', !expanded);
+      }
+    });
+  });
+
+  // ───────────────────────────────────────────────
   // FAQアコーディオン
   // ───────────────────────────────────────────────
   document.querySelectorAll('.faq-question').forEach(function (btn) {

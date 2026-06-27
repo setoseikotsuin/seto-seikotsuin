@@ -1431,31 +1431,6 @@ input, select, textarea { font: inherit; }
   .page-hero { padding: 160px 32px 80px; }
   .page-hero h1 { font-size: 36px; }
 
-  /* デスクトップナビ表示・ハンバーガー非表示 */
-  .site-nav {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .site-nav a {
-    font-size: 12px;
-    color: rgba(255,255,255,0.85);
-    letter-spacing: 0.04em;
-    position: relative;
-    white-space: nowrap;
-  }
-  .site-nav a:not(.nav-cta):hover { color: var(--accent); }
-  .site-nav a.active { color: var(--accent); }
-  .site-nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -6px; left: 0; right: 0;
-    height: 1px;
-    background: var(--accent);
-  }
-  .hamburger { display: none; }
-  .mobile-nav { display: none; }
-
   /* 3列のグリッド */
   .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
@@ -1477,28 +1452,458 @@ input, select, textarea { font: inherit; }
 }
 
 @media (min-width: 1024px) {
-  .logo-en {
-    font-size: 13px;
-    letter-spacing: 0.4em;
-  }
-  .logo-ja {
-    font-size: 22px;
-    letter-spacing: 0.22em;
-    margin-top: 5px;
-  }
   .header-inner { padding: 18px 24px; }
 }
 
+/* PCナビは1200px以上で表示。1024-1199pxはハンバーガー継続 */
 @media (min-width: 1200px) {
-  .site-nav { gap: 24px; }
-  .site-nav a { font-size: 12.5px; letter-spacing: 0.06em; }
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .site-nav a {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.05em;
+    position: relative;
+    white-space: nowrap;
+  }
+  .site-nav a:not(.nav-cta):hover { color: var(--accent); }
+  .site-nav a.active { color: var(--accent); }
+  .site-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0; right: 0;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hamburger { display: none; }
+  .mobile-nav { display: none; }
+  .logo-en { font-size: 13px; letter-spacing: 0.4em; }
+  .logo-ja { font-size: 22px; letter-spacing: 0.22em; margin-top: 5px; }
 }
 
-@media (min-width: 1400px) {
-  .site-nav { gap: 28px; }
+@media (min-width: 1600px) {
+  .site-nav { gap: 26px; }
   .site-nav a { font-size: 13px; letter-spacing: 0.08em; }
   .logo-en { font-size: 15px; letter-spacing: 0.42em; }
   .logo-ja { font-size: 26px; letter-spacing: 0.24em; margin-top: 6px; }
+}
+
+/* ============================================================
+   NAV DROPDOWN (PC) — 症例一覧などの親子メニュー
+   ============================================================ */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.dropdown-arrow {
+  font-size: 10px;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--primary-dark);
+  border: 1px solid rgba(196,151,90,0.3);
+  border-radius: 4px;
+  padding: 8px 0;
+  min-width: 240px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+  margin-top: 12px;
+  z-index: 1001;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+}
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--primary-dark);
+  border-top: 1px solid rgba(196,151,90,0.3);
+  border-left: 1px solid rgba(196,151,90,0.3);
+}
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+}
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown:focus-within .dropdown-arrow {
+  transform: rotate(180deg);
+}
+.dropdown-menu a {
+  display: block !important;
+  padding: 11px 20px !important;
+  font-size: 12.5px !important;
+  color: rgba(255,255,255,0.85) !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+}
+.dropdown-menu a:hover {
+  color: var(--accent) !important;
+  background: rgba(196,151,90,0.08);
+  border-left-color: var(--accent);
+}
+.dropdown-menu a.active {
+  color: var(--accent) !important;
+  background: rgba(196,151,90,0.06);
+  border-left-color: var(--accent);
+}
+.dropdown-menu a.active::after {
+  display: none !important;
+}
+
+/* ============================================================
+   MOBILE NAV SUB-GROUP — タップで展開するアコーディオン
+   ============================================================ */
+.mobile-nav-group {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-nav-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.mobile-nav-toggle.active { color: var(--accent); }
+.mobile-nav-toggle .chevron {
+  font-size: 11px;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+.mobile-nav-toggle[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+.mobile-nav-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-nav-sub.open {
+  max-height: 500px;
+}
+.mobile-nav-sub a {
+  padding: 12px 0 12px 20px !important;
+  font-size: 13.5px !important;
+  font-family: var(--font-body) !important;
+  color: rgba(255,255,255,0.7) !important;
+  letter-spacing: 0.06em !important;
+  border-bottom: 0 !important;
+  border-left: 2px solid rgba(196,151,90,0.25);
+  margin-left: 4px;
+}
+.mobile-nav-sub a:hover { color: var(--accent) !important; }
+.mobile-nav-sub a.active {
+  color: var(--accent) !important;
+  border-left-color: var(--accent);
+}
+
+/* ============================================================
+   症例一覧トップ — カテゴリカード
+   ============================================================ */
+.case-cat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.case-cat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.case-cat-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.case-cat-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+.case-cat-icon-lg {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+.case-cat-en {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.case-cat-ja {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.case-cat-intro {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.case-cat-count {
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+/* ============================================================
+   症例カテゴリページ — 個別症例カードリスト
+   ============================================================ */
+.case-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+.case-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: all var(--transition);
+}
+.case-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.case-card-thumb { background: var(--bg-alt); }
+.case-card-body { padding: 22px 20px; }
+.case-card-meta {
+  font-size: 11.5px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.case-card-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.case-card-complaint {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+.case-card-more {
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  display: inline-block;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+.related-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.related-cat-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  font-size: 13px;
+  color: var(--primary-dark);
+  transition: all 0.25s;
+}
+.related-cat-link:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+/* ============================================================
+   症例詳細ページ
+   ============================================================ */
+.case-detail-meta {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 36px;
+}
+.case-meta-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+  align-items: baseline;
+}
+.case-meta-row:last-child { border-bottom: 0; }
+.case-meta-key {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.case-meta-val {
+  font-size: 14px;
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+.case-section {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.case-section:last-of-type { border-bottom: 0; }
+.case-section-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  line-height: 1.5;
+}
+.case-section-num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.case-section-body {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 2;
+}
+.case-section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 4px;
+}
+.case-section-list li {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.95;
+  padding-left: 22px;
+  position: relative;
+}
+.case-section-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.case-doctor-comment {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+  margin: 28px 0 20px;
+  position: relative;
+}
+.case-doctor-comment::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 60px;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+  pointer-events: none;
+}
+.case-doctor-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.case-doctor-body {
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(255,255,255,0.9);
+}
+.case-disclaimer {
+  margin-top: 24px;
+  padding: 14px 16px;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ============================================================
+   症例ページのレスポンシブ
+   ============================================================ */
+@media (min-width: 768px) {
+  .case-cat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .case-list { gap: 28px; }
+  .case-card { grid-template-columns: 280px 1fr; }
+  .case-card-thumb { min-height: 100%; }
+  .case-section-title { font-size: 19px; }
+}
+@media (min-width: 1024px) {
+  .case-cat-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
 }
 
 /* ============================================================
