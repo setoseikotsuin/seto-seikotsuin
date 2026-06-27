@@ -1497,6 +1497,22 @@ input, select, textarea { font: inherit; }
 .nav-dropdown {
   position: relative;
 }
+/* ホバーブリッジ：トリガーとドロップダウン間の隙間で
+   :hover が切れないように透明な領域でつなぐ */
+.nav-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -10px;
+  right: -10px;
+  height: 18px;
+  background: transparent;
+  pointer-events: none;
+}
+.nav-dropdown:hover::after,
+.nav-dropdown:focus-within::after {
+  pointer-events: auto;
+}
 .nav-dropdown-toggle {
   display: inline-flex;
   align-items: center;
