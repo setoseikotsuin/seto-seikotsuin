@@ -1965,3 +1965,103 @@ input, select, textarea { font: inherit; }
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ============================================================
+   お知らせ（news.html）
+   ============================================================ */
+.news-list {
+  max-width: 820px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+.news-item {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+}
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.news-date {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.news-tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  background: transparent;
+  white-space: nowrap;
+}
+.news-tag.tag-closed {
+  border-color: #B4573F;
+  color: #B4573F;
+}
+.news-tag.tag-campaign {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(196,151,90,0.08);
+}
+.news-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+.news-body p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--text);
+}
+.news-body p + p { margin-top: 10px; }
+.news-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  transition: var(--transition);
+}
+.news-link:hover { color: var(--primary-light); }
+
+@media (min-width: 768px) {
+  .news-item {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+  }
+  .news-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 0;
+    padding-top: 3px;
+  }
+  .news-date { font-size: 15px; }
+  .news-title { font-size: 18px; }
+  .news-body p { font-size: 15px; }
+}
+
+/* ナビ項目が増えたため、PC表示のヘッダー幅と間隔を調整（項目のはみ出し防止） */
+@media (min-width: 1200px) {
+  .header-inner { max-width: 1340px; }
+  .site-nav { gap: 14px; }
+  .site-nav a { font-size: 12px; letter-spacing: 0.03em; }
+  .site-nav .nav-cta { padding-left: 16px; padding-right: 16px; }
+}
+@media (min-width: 1500px) {
+  .site-nav { gap: 20px; }
+  .site-nav a { font-size: 12.5px; letter-spacing: 0.06em; }
+}
