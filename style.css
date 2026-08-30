@@ -1696,6 +1696,23 @@ input, select, textarea { font: inherit; }
   font-size: 36px;
   margin-bottom: 12px;
 }
+/* 症例カテゴリのピクトグラム（絵文字の代替） */
+.case-cat-icon-img {
+  width: 44px !important;
+  height: 44px !important;
+  max-width: none !important;
+  display: block !important;
+  object-fit: contain !important;
+  margin-bottom: 12px;
+  /* サイトのプライマリ濃緑色に統一 */
+  filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+.case-cat-card:hover .case-cat-icon-img {
+  /* ホバー時はアクセントゴールド色 */
+  filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(597%) hue-rotate(354deg) brightness(89%) contrast(90%);
+  transform: translateY(-2px);
+}
 .case-cat-icon-lg {
   font-size: 48px;
   display: block;
