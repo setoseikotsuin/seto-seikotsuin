@@ -1100,7 +1100,7 @@ input, select, textarea { font: inherit; }
   background: var(--bg-alt);
   order: -1;
 }
-.symptom-image img { width: 100%; height: 100%; object-fit: cover; }
+.symptom-image img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
 
 /* ============================================================
    PRICE TABLE (料金)
