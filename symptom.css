@@ -25,22 +25,22 @@
 .sx-wrap{max-width:860px;margin:0 auto;}
 
 /* 01 チェックリスト */
-.sx-check{background:var(--primary-dark);border-radius:8px;padding:40px 44px;margin-bottom:64px;
+.sx-check{background:#fff;border:1px solid var(--border);border-top:6px solid var(--yellow);border-radius:8px;padding:40px 44px;margin-bottom:64px;
   position:relative;overflow:hidden;}
 .sx-check::before{content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(-45deg,transparent,transparent 24px,
-  rgba(196,151,90,.035) 24px,rgba(196,151,90,.035) 25px);}
+  rgba(0,0,0,0) 24px,rgba(0,0,0,0) 25px);}
 .sx-check > *{position:relative;}
-.sx-check h2{font-family:var(--font-serif);font-size:20px;font-weight:600;color:#fff;
+.sx-check h2{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--text);
   letter-spacing:.05em;margin-bottom:26px;line-height:1.6;}
 .sx-check ul{display:grid;grid-template-columns:1fr;gap:13px;}
 .sx-check li{display:flex;align-items:flex-start;gap:13px;font-size:14.5px;
-  color:rgba(255,255,255,.84);line-height:1.85;}
+  color:var(--text);line-height:1.85;}
 .sx-check li::before{content:'✓';flex-shrink:0;width:22px;height:22px;margin-top:2px;
-  background:var(--accent);color:var(--primary-dark);border-radius:50%;
+  background:var(--yellow);color:var(--on-yellow);border-radius:50%;
   display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
-.sx-check .note{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);
-  font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.95;}
+.sx-check .note{margin-top:26px;padding-top:22px;border-top:1px solid var(--border);
+  font-size:13.5px;color:var(--text-muted);line-height:1.95;}
 
 /* 見出し */
 .sx-sec{margin-bottom:60px;}
@@ -64,10 +64,10 @@
 .cause-item p{font-size:14px;line-height:2.0;}
 
 /* 放置リスク */
-.sx-risk{background:#FFF8F0;border:1px solid rgba(196,151,90,.4);border-left:4px solid var(--accent);
+.sx-risk{background:rgba(250,232,104,.18);border:1px solid var(--border);border-left:4px solid var(--yellow);
   border-radius:0 6px 6px 0;padding:28px 32px;}
 .sx-risk h3{display:flex;align-items:center;gap:10px;font-family:var(--font-serif);font-size:16px;
-  font-weight:600;color:#8B5E1A;margin-bottom:12px;}
+  font-weight:600;color:var(--text);margin-bottom:12px;}
 .sx-risk p{font-size:14.5px;color:var(--text);line-height:2.05;}
 
 /* アプローチ ステップ */
@@ -103,9 +103,9 @@
 /* ── 執筆者（院長） ── */
 .author-box{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;
   margin-top:64px;}
-.author-head{background:var(--primary-dark);padding:14px 30px;}
+.author-head{background:var(--yellow);padding:14px 30px;}
 .author-head span{font-family:var(--font-display);font-size:11px;letter-spacing:.3em;
-  text-transform:uppercase;color:var(--accent);}
+  text-transform:uppercase;color:var(--on-yellow);}
 .author-body{display:grid;grid-template-columns:170px 1fr;gap:32px;padding:32px 30px;align-items:start;}
 .author-photo{width:170px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:var(--bg-alt);
   position:relative;}
