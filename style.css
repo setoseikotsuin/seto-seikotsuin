@@ -6,17 +6,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap');
 
 :root {
-  --primary:      #1C4D3E;
-  --primary-dark: #0D2B22;
-  --primary-light:#2E7A61;
-  --accent:       #C4975A;
-  --accent-light: #D9B07A;
-  --bg:           #FAFAF7;
-  --bg-alt:       #F3F0EA;
-  --dark:         #0D1F18;
-  --text:         #2A2A2A;
-  --text-muted:   #6B6B6B;
-  --border:       #E0DDD5;
+  /* 2026-10 配色変更：LP（lp.html / jiko.html）に統一 グレー×チャコール×イエロー */
+  --primary:      #2E2F33;
+  --primary-dark: #18181A;
+  --primary-light:#4A4B50;
+  --accent:       #6B6A6F;
+  --accent-light: #8A898E;
+  --yellow:       #FAE868;
+  --on-yellow:    #18181A;
+  --bg:           #F5F5F5;
+  --bg-alt:       #F5F5F5;
+  --dark:         #18181A;
+  --text:         #18181A;
+  --text-muted:   #5A5A5F;
+  --border:       #E3E3E0;
   --white:        #FFFFFF;
   --line-green:   #06C755;
   --font-display: 'Cormorant Garamond', 'Noto Serif JP', serif;
@@ -24,8 +27,8 @@
   --font-serif:   'Noto Serif JP', serif;
   --radius:       4px;
   --radius-lg:    12px;
-  --shadow:       0 2px 20px rgba(0,0,0,0.08);
-  --shadow-lg:    0 8px 48px rgba(0,0,0,0.14);
+  --shadow:       0 2px 20px rgba(0,0,0,0.06);
+  --shadow-lg:    0 8px 48px rgba(0,0,0,0.10);
   --transition:   0.3s ease;
   --max-w:        1100px;
 }
@@ -455,8 +458,8 @@ input, select, textarea { font: inherit; }
   max-width: none !important;
   display: block !important;
   object-fit: contain !important;
-  /* 全アイコンをサイトのプライマリ濃緑色に統一 */
-  filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
+  /* 全アイコンをチャコールに統一 */
+  filter: brightness(0) opacity(0.85);
   transition: filter 0.25s ease, transform 0.25s ease;
   flex-shrink: 0;
 }
@@ -464,8 +467,8 @@ input, select, textarea { font: inherit; }
   min-width: 96px; /* 全項目の幅を統一して整列 */
 }
 .quick-nav a:hover .qn-icon {
-  /* ホバー時はアクセントゴールド色に変化 */
-  filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(597%) hue-rotate(354deg) brightness(89%) contrast(90%);
+  /* ホバー時は黒 */
+  filter: brightness(0) opacity(1);
   transform: translateY(-2px);
 }
 
@@ -477,13 +480,13 @@ input, select, textarea { font: inherit; }
   display: block !important;
   object-fit: contain !important;
   flex-shrink: 0;
-  /* サイトのプライマリ濃緑色に統一 */
-  filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
+  /* チャコールに統一 */
+  filter: brightness(0) opacity(0.85);
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 .card:hover .symptom-icon {
-  /* ホバー時はアクセントゴールド色 */
-  filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(597%) hue-rotate(354deg) brightness(89%) contrast(90%);
+  /* ホバー時は黒 */
+  filter: brightness(0) opacity(1);
   transform: scale(1.05);
 }
 
@@ -1704,13 +1707,13 @@ input, select, textarea { font: inherit; }
   display: block !important;
   object-fit: contain !important;
   margin-bottom: 12px;
-  /* サイトのプライマリ濃緑色に統一 */
-  filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
+  /* チャコールに統一 */
+  filter: brightness(0) opacity(0.85);
   transition: filter 0.25s ease, transform 0.25s ease;
 }
 .case-cat-card:hover .case-cat-icon-img {
-  /* ホバー時はアクセントゴールド色 */
-  filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(597%) hue-rotate(354deg) brightness(89%) contrast(90%);
+  /* ホバー時は黒 */
+  filter: brightness(0) opacity(1);
   transform: translateY(-2px);
 }
 .case-cat-icon-lg {
@@ -1726,8 +1729,8 @@ input, select, textarea { font: inherit; }
   display: block !important;
   object-fit: contain !important;
   margin: 0 auto 14px !important;
-  /* サイトのプライマリ濃緑色に統一 */
-  filter: brightness(0) saturate(100%) invert(22%) sepia(28%) saturate(1180%) hue-rotate(115deg) brightness(94%) contrast(90%);
+  /* チャコールに統一 */
+  filter: brightness(0) opacity(0.85);
 }
 .case-cat-en {
   font-family: var(--font-display);
@@ -2093,3 +2096,112 @@ input, select, textarea { font: inherit; }
   .site-nav { gap: 20px; }
   .site-nav a { font-size: 12.5px; letter-spacing: 0.06em; }
 }
+
+/* ============================================================
+   配色テーマ：LP（lp.html / jiko.html）に統一（2026-10）
+   背景 #F5F5F5 ／ 文字 チャコール ／ アクセント イエロー
+   ※暗い帯（ヘッダー・ヒーロー・CTA・フッター等）を明るく反転
+   ============================================================ */
+::selection { background: rgba(250,232,104,0.6); color: var(--text); }
+:focus-visible { outline: 3px solid #E0C200; }
+
+/* ヘッダー・ナビ */
+.site-header { background: rgba(245,245,245,0.96); border-bottom: 1px solid var(--border); }
+.site-nav a { color: var(--text); }
+.site-nav a:not(.nav-cta):hover, .site-nav a.active { color: var(--text); }
+.site-nav a.active::after { background: var(--yellow); height: 3px; }
+.nav-cta { background: var(--line-green); color: #fff !important; }
+.nav-cta:hover { background: #05B34C; }
+.hamburger span { background: var(--text); }
+.dropdown-arrow { color: var(--text-muted); }
+.dropdown-menu, .dropdown-menu::before { background: #fff; border-color: var(--border); }
+.dropdown-menu { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.dropdown-menu a { color: var(--text) !important; }
+.dropdown-menu a:hover, .dropdown-menu a.active { color: var(--text) !important; background: rgba(250,232,104,0.3); border-left-color: var(--yellow); }
+.mobile-nav { background: var(--bg); }
+.mobile-nav a { color: var(--text); border-bottom-color: var(--border); }
+.mobile-nav a:hover { color: var(--text); }
+.mobile-cta { color: #fff !important; }
+.mobile-nav-group { border-bottom-color: var(--border); }
+.mobile-nav-toggle, .mobile-nav-toggle.active { color: var(--text); }
+.mobile-nav-toggle .chevron { color: var(--text-muted); }
+.mobile-nav-sub a { color: var(--text-muted) !important; border-left-color: var(--border); }
+.mobile-nav-sub a:hover, .mobile-nav-sub a.active { color: var(--text) !important; border-left-color: var(--yellow); }
+
+/* ラベル・番号 */
+.section-label, .page-hero-label, .banner-en, .info-block h3 { display: inline-block !important; width: auto !important; max-width: max-content; color: var(--on-yellow); background: var(--yellow); padding: 3px 10px; border-radius: 3px; letter-spacing: 0.25em; }
+.page-hero-label, .banner-en { margin-left: auto; margin-right: auto; }
+.divider-gold { background: var(--yellow); }
+.card-number, .feature-num, .symptom-num { color: var(--text); display: inline-block; background: linear-gradient(transparent 62%, var(--yellow) 62%); padding: 0 4px; }
+.faq-q-mark, .faq-a-mark, .faq-icon { color: var(--text); }
+
+/* ページ見出し帯・ヒーロー */
+.page-hero { background: var(--bg); color: var(--text); border-bottom: 1px solid var(--border); }
+.hero { background: var(--bg); color: var(--text); }
+.hero h1 { color: var(--text); }
+.hero h1 em { color: var(--on-yellow); background: var(--yellow); padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hero-sub { color: var(--text-muted); }
+.hero-sub strong { color: var(--text) !important; }
+.hero .btn-outline { border-color: var(--primary) !important; color: var(--primary) !important; }
+.hero .btn-outline:hover { color: #fff !important; }
+.hero-grand-open { background: var(--yellow); border-color: var(--yellow); color: var(--on-yellow); }
+.hero-grand-open::before { background: var(--on-yellow); }
+.hero-visual { background: #fff; border-color: var(--border); }
+.quick-nav a:hover { color: var(--text); border-bottom-color: var(--yellow); }
+.section-dark { background: var(--bg); color: var(--text); }
+.section-dark .section-title, .section-dark h3 { color: var(--text); }
+
+/* ボタン */
+.btn-accent { background: var(--yellow); color: var(--on-yellow); }
+.btn-accent:hover { background: #F3DC45; }
+
+/* 体験会バナー・CTA */
+.invite-banner { background: #fff; color: var(--text); border: 1px solid var(--border); border-top: 6px solid var(--yellow); }
+.invite-banner::before { display: none; }
+.invite-banner .sub, .invite-banner p[style] { color: var(--text-muted) !important; }
+.invite-detail-item { background: var(--bg); border-color: var(--border); }
+.invite-detail-item .label { color: var(--text-muted); }
+.cta-section { background: #fff; color: var(--text); border-top: 6px solid var(--yellow); border-bottom: 1px solid var(--border); }
+.cta-section::before { display: none; }
+.cta-section p { color: var(--text-muted); }
+
+/* 営業時間・所在地の帯 */
+.info-strip { background: var(--bg); color: var(--text); border-top: 1px solid var(--border); }
+.hours-row { border-bottom-color: var(--border); }
+.hours-day { color: var(--text-muted); }
+.hours-time { color: var(--text); }
+.hours-time.closed { color: var(--accent-light); }
+.info-address { color: var(--text-muted); }
+.info-address strong { color: var(--text); }
+.info-tel { color: var(--text); }
+
+/* フッター・固定ボタン */
+.site-footer { background: var(--bg); color: var(--text); border-top: 1px solid var(--border); }
+.footer-top { border-bottom-color: var(--border); }
+.footer-brand .logo-en, .footer-nav-title { color: var(--text-muted); }
+.footer-brand .logo-ja { color: var(--text); }
+.footer-brand p, .footer-nav-list a, .footer-social a, .footer-bottom { color: var(--text-muted); }
+.footer-nav-list a:hover, .footer-social a:hover { color: var(--text); }
+.float-cta { background: #fff; border-top: 1px solid var(--border); }
+.float-cta .btn-accent { background: var(--yellow); color: var(--on-yellow); }
+
+/* 黒いボックス類を白カードに */
+.philosophy-quote, .case-doctor-comment { background: #fff; color: var(--text); border: 1px solid var(--border); border-left: 4px solid var(--yellow); }
+.case-doctor-comment::before { color: #E0C200; }
+.case-doctor-label { color: var(--text-muted); }
+.case-doctor-body { color: var(--text); }
+.symptom-card-header, .price-header { background: #fff; color: var(--text); border-bottom: 2px solid var(--text); }
+.price-header-num, .price-header-en, .symptom-en { color: var(--text-muted); }
+.faq-category-header { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--yellow); }
+.faq-category-title { color: var(--text); }
+.faq-category-en { color: var(--text-muted); }
+.step-num { background: var(--yellow); color: var(--on-yellow); box-shadow: none; }
+.badge-alert { background: rgba(250,232,104,0.25); border-left-color: var(--yellow); color: var(--text); }
+.symptom-checklist li::before, .case-section-list li::before { color: var(--text); }
+.case-card:hover, .case-cat-card:hover { border-color: var(--text); }
+.case-card-more { color: var(--text); border-bottom-color: var(--yellow); }
+
+/* お知らせ */
+.news-tag.tag-campaign { border-color: var(--on-yellow); color: var(--on-yellow); background: var(--yellow); }
+.news-link { color: var(--text); }
+.news-link:hover { color: var(--text-muted); }
